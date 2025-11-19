@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Famous Places in Andhra Pradesh</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f2f4f7;
+    }
+    header {
+        background: #0077cc;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    footer {
+        background: #222;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .container {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .box {
+        background: white;
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+        text-align: center;
+        min-height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+    .image-box img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: 25px auto;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background: #a3cc00;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #5ca300;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    Famous Places in Andhra Pradesh
+</header>
+
+<div class="container">
+    <div class="box" id="originalText">అమరావతి ఆంధ్ర ప్రదేశ్ రాజధాని</div>
+
+    <div class="box image-box">
+        <img id="placeImage" src="https://images.unsplash.com/photo-1508739826987-b79cd8b7da12?w=400">
+    </div>
+
+    <div class="box" id="translatedText">Amaravati is the capital of Andhra Pradesh</div>
+</div>
+
+<div class="nav-buttons">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<footer>
+    Test is held on 16 Nov 2025 @ 11:00 AM to 2:00 PM IST
+</footer>
+
+<script>
+const slides = [
+    {
+        telugu: "అమరావతి ఆంధ్ర ప్రదేశ్ రాజధాని",
+        english: "Amaravati is the capital of Andhra Pradesh",
+        img: "https://images.unsplash.com/photo-1508739826987-b79cd8b7da12?w=400"
+    },
+    {
+        telugu: "తిరుపతి ప్రసిద్ధ పుణ్యక్షేత్రం",
+        english: "Tirupati is a famous pilgrimage place",
+        img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b"
+    },
+    {
+        telugu: "అరకు లోయ అందమైన హిల్ స్టేషన్",
+        english: "Araku Valley is a beautiful hill station",
+        img: "https://images.unsplash.com/photo-1601297183300-a5d38d94f55c?w=400"
+    }
+];
+
+let index = 0;
+
+function updateSlide() {
+    document.getElementById("originalText").innerText = slides[index].telugu;
+    document.getElementById("translatedText").innerText = slides[index].english;
+    document.getElementById("placeImage").src = slides[index].img;
+}
+
+function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateSlide();
+}
+
+function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlide();
+}
+</script>
+
+</body>
+</html>
